@@ -1,0 +1,71 @@
+ion-content {
+
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+
+.card {
+    border: 0px;
+
+    .header {
+        height: 200px;
+        background-color: white;
+
+
+
+        .avatar {
+            width: 160px;
+            height: 160px;
+            position: relative;
+            margin: 0 auto;
+
+
+            img {
+                display: block;
+                border-radius: 50%;
+                position: absolute;
+                box-shadow: 2px;
+                bottom: calc(-1*(50px + 4px));
+                border: 2px solid grey;
+
+            }
+        }
+    }
+}
+
+
+ion-content {
+    --background: #7FB3FF;
+  }
+
+
+  .wave-container {
+    position: relative;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    overflow: hidden;
+
+    background: white;
+
+    img {
+      margin-bottom: 2rem;
+    }
+
+  }
+
+  .wave-container > svg {
+    display: block;
+  }
+  .wave-container > h1 {
+      color: black;
+    }
+
+  h1 {
+    font-size: 4rem;
+    margin: 2rem auto;
+  }
+

@@ -1,0 +1,46 @@
+ion-content {
+  --ion-background-color: #E1EAF9
+}
+
+ion-header {
+  position: absolute;
+}
+
+ion-toolbar {
+  --ion-background-color: transparent;
+  --opacity: 0;
+}
+
+ion-card {
+  --ion-background-color: transparent;
+  box-shadow: none !important;
+}
+
+.signin-btns {
+  margin-top: 25px;
+  text-align: center;
+  color: #F0F4FA;
+
+}
+
+.text-tag {
+  margin-top: 50px;
+  text-align: center;
+
+  span {
+    font-size: 13px;
+    font-weight: normal;
+    color: #fff;
+  }
+}
+
+.social-btns {
+  text-align: center;
+  margin-top: 50px;
+
+  ion-button {
+    width: 40px;
+    padding-left: 5px !important;
+  }
+
+}

@@ -1,0 +1,74 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaulthref="login" text="Back" color="primary">Back</ion-back-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content fullscreen="true" slot="fixed" >
+  <div class="wave-container">
+    <div class="ion-padding">
+      <h1>Bienvenue</h1>
+      <h4><i>Application de gestion des annonces</i></h4>
+    </div>
+   
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#3880ff" fill-opacity="1" d="M0,64L120,101.3C240,139,480,213,720,202.7C960,192,1200,96,1320,48L1440,0L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path></svg>
+    </div>
+
+
+
+
+  <ion-card >
+    
+    <ion-card-content>
+
+      <form #f="ngForm" (ngSubmit)="loginFireauth(f.value)">
+        <div class="wrapform">
+          <ion-item>
+            <ion-input type="text" name="email" placeholder="Email" ngModel>
+              <ion-icon name="mail-outline"class="ion-margin"></ion-icon>
+            </ion-input>
+          </ion-item>
+
+
+          <ion-item>
+
+            <ion-input type="password" name="password" placeholder="**************" ngModel>
+              <ion-icon name="lock-closed" class="ion-margin"></ion-icon>
+            </ion-input>
+          </ion-item>
+
+
+
+        </div>
+
+       
+          
+       
+
+       
+
+
+      
+
+        <ion-button expand="full" shape="round" type="submit" fill="solid" class="sign-btn">Login</ion-button>
+
+      </form>
+    </ion-card-content>
+
+    
+  </ion-card>
+  
+  
+
+
+
+
+
+</ion-content>
