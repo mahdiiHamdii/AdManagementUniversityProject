@@ -6,15 +6,10 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-
-import { LoginPage } from './login/login.page';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { firebaseConfig } from 'src/environments/environment';
-
-import { FormsModule } from '@angular/forms';
-
 @NgModule({
   declarations: [AppComponent],
   imports: [

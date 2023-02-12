@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -34,7 +33,7 @@ const routes: Routes = [
   },
   {
     path: 'user-profile',
-    loadChildren: () => import('./user-profile/user-profile.module').then( m => m.UserProfilePageModule)
+    loadChildren: () => import('./profile/profile.module').then(m => m.UserProfilePageModule)
   },
 
 

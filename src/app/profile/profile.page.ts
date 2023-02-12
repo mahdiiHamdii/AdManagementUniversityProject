@@ -4,8 +4,8 @@ import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-user-profile',
-  templateUrl: './user-profile.page.html',
-  styleUrls: ['./user-profile.page.scss'],
+  templateUrl: './profile.page.html',
+  styleUrls: ['./profile.page.scss'],
 })
 export class UserProfilePage implements OnInit {
   userEmail='';

@@ -13,7 +13,7 @@ export const firebaseConfig = {
   // messagingSenderId: "927137793230",
   // appId: "1:927137793230:web:9a387a1c38c759ddb63c9f",
   // measurementId: "G-J6NHS4M2CD"
-  apiKey: "AIzaSyBj6VjV08lSlZaSs5Jt6xxEOij0kvzo1HQ",
+  apiKey: 'AIzaSyBj6VjV08lSlZaSs5Jt6xxEOij0kvzo1HQ',
   authDomain: "gestion-des-annoces.firebaseapp.com",
   projectId: "gestion-des-annoces",
   storageBucket: "gestion-des-annoces.appspot.com",

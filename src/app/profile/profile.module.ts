@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { UserProfilePageRoutingModule } from './user-profile-routing.module';
+import { UserProfilePageRoutingModule } from './profile-routing.module';
 
-import { UserProfilePage } from './user-profile.page';
+import { UserProfilePage } from './profile.page';
 
 @NgModule({
   imports: [
