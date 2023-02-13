@@ -6,14 +6,14 @@ const routes: Routes = [
     path: 'home',
 
     loadChildren: () =>
-      import('./home/home.module').then((m) => m.HomePageModule),
+      import('./components/home/home.module').then((m) => m.HomePageModule),
 
 
   },
   {
     path: 'annonces',
     loadChildren: () =>
-      import('./annonces/annonces.module').then((m) => m.AnnoncesModule),
+      import('./components/annonces/annonces.module').then((m) => m.AnnoncesModule),
 
   },
   {
@@ -24,16 +24,16 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () =>
-      import('./login/login.module').then((m) => m.LoginPageModule),
+      import('./components/login/login.module').then((m) => m.LoginPageModule),
   },
   {
     path: 'signup',
     loadChildren: () =>
-      import('./signup/signup.module').then((m) => m.SignupPageModule),
+      import('./components/signup/signup.module').then((m) => m.SignupPageModule),
   },
   {
     path: 'user-profile',
-    loadChildren: () => import('./profile/profile.module').then(m => m.UserProfilePageModule)
+    loadChildren: () => import('./components/profile/profile.module').then(m => m.UserProfilePageModule)
   },
 
 

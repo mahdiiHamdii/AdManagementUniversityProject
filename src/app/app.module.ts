@@ -22,16 +22,6 @@ import { firebaseConfig } from 'src/environments/environment';
     HttpClientModule,
   ],
 
-  /*@NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(),
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-  ],*/
-
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
