@@ -16,67 +16,62 @@
 </ion-header>
 <ion-content>
 
-  <!--ION SEGMENT-->
+  <!-- ION SEGMENT -->
   <ion-toolbar>
     <ion-segment
       (ionChange)="segmentChanged($event)"
       [(ngModel)]="segment"
       color="primary"
     >
-       <!--Segment du partie Home qui affiche le slide de tout les annonces lorsqu'on le clique-->
       <ion-segment-button value="0">
-        <ion-label>Boissons</ion-label>
-        <ion-icon name="beer-outline"></ion-icon>
+        <ion-label>Nutrition</ion-label>
+        <ion-icon name="fast-food"></ion-icon>
       </ion-segment-button>
       <ion-segment-button value="1">
-        <ion-label>Plats</ion-label>
-        <ion-icon name="pizza-outline"></ion-icon>
+        <ion-label>Exercices</ion-label>
+        <ion-icon name="bicycle"></ion-icon>
       </ion-segment-button>
-     <!--Segment du partie qui affiche le slide des annonces du utlisateur connecté lorsqu'on le clique-->
     </ion-segment>
   </ion-toolbar>
-  <!--ION SEGMENT-->
-  <div class="wave-container">
+  <!-- ION SEGMENT -->
 
-     <!-- Slide qui affiche tout les annonces-->
+  <div class="wave-container">
+    <!-- Slide displaying all announcements -->
     <ion-slides #slides (ionSlideDidChange)="slideChanged()" scrollbar="true">
       <ion-slide>
         <ion-grid>
           <ion-row>
-            <ion-col sizeSm="6" size="4" sizeMd="4" sizeLg="3" sizeXl="2"  *ngFor="let annonce of listAnnoncesBoissons">
+            <ion-col sizeSm="6" size="4" sizeMd="4" sizeLg="3" sizeXl="2"  *ngFor="let annonce of listAnnoncesNutrition">
               <ion-card style="background: url({{annonce.imageUrl}});" [routerLink]="['/annonces/annonce-details/', annonce.id]">
                 <ion-card-header>
-                  <ion-avatar>
-                    <img
-                    src="{{user?.imageUrl}}"
-                    />
+                  <ion-avatar style="width: 100%; height: 100%;">
+                    <img src="/assets/images/meal.jpeg" />
                   </ion-avatar>
                 </ion-card-header>
                 <ion-card-content style="background: #7FB3FF;">
                   <ion-card-title>{{annonce.title}}</ion-card-title>
-                  <p maxlength="5">{{annonce.description |slice:0:20}}..</p>
-                 </ion-card-content>
+                  <p maxlength="5">{{annonce.description | slice:0:20}}..</p>
+                </ion-card-content>
               </ion-card>
             </ion-col>
           </ion-row>
         </ion-grid>
       </ion-slide>
-      <!--Second slide my annonces-->
+      
+      <!-- Second slide with user's announcements -->
       <ion-slide>
         <ion-grid>
           <ion-row>
-            <ion-col sizeSm="6" size="4" sizeMd="4" sizeLg="3" sizeXl="2"  *ngFor="let annonce of listAnnoncesPlats">
+            <ion-col sizeSm="6" size="4" sizeMd="4" sizeLg="3" sizeXl="2"  *ngFor="let annonce of listAnnoncesExercises">
               <ion-card style="background: url({{annonce.imageUrl}});" [routerLink]="['/annonces/annonce-details/', annonce.id]">
                 <ion-card-header>
-                  <ion-avatar>
-                    <img
-                      src="{{user?.imageUrl}}"
-                    />
+                  <ion-avatar style="width: 100%; height: 100%;">
+                    <img src="/assets/images/workout.jpeg" />
                   </ion-avatar>
                 </ion-card-header>
                 <ion-card-content style="background: #7FB3FF;">
                   <ion-card-title>{{annonce.title}}</ion-card-title>
-                  <p maxlength="5">{{annonce.description |slice:0:20}}..</p>
+                  <p maxlength="5">{{annonce.description | slice:0:20}}..</p>
                 </ion-card-content>
               </ion-card>
             </ion-col>

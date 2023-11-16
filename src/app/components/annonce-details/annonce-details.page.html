@@ -1,5 +1,6 @@
 <ion-header [translucent]="true">
-  <!-- ion-back-button avec defaultHref va retourner 'utlisateur vers /annonces-->
+  <!-- Header section -->
+  <!-- Back button to return to '/annonces' -->
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button
@@ -8,43 +9,44 @@
       </ion-back-button>
     </ion-buttons>
     <ion-title class="d-inline-flex p-2 bd-highlight">
-      Annonce Details</ion-title
-    >
-    <!-- on a deja recuperer l'email du user de a partir de local storage et maintenant on va le comparer avec le mail du createur de l'annonce si ils sont les memes on affiche le boutton du suppression-->
+      Annonce Details <!-- Mahdi Hamdi -->
+    </ion-title>
+    <!-- Check if the current user's email matches the creator's email for deletion button display -->
     <ion-button
       *ngIf="userEmail===annonce.createdBy"
       slot="end"
       (click)="deleteAnnonce()"
-      >
+    >
       <ion-icon name="trash-outline"></ion-icon>
+      <ion-content>Delete</ion-content>
     </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-margin">
+  <!-- Content section -->
   <ion-grid>
     <ion-row>
       <ion-col size="8" offset="2" class="container">
         <div class="ion-margin">
           <strong style="font-size: x-large">Annonce Details:</strong>
-          <h1>{{annonce.title}}</h1>
-          <ion-img [src]="annonce.imageUrl"></ion-img>
+          <h1>{{annonce.title}}</h1> <!-- Display annonce title -->
           <div class="ion-margin">
             <br />
-            <ion-badge slot="start">{{annonce.category}}</ion-badge>
+            <ion-badge slot="start">{{annonce.category}}</ion-badge> <!-- Display annonce category -->
 
-            <p style="font-size: x-large">{{annonce.description}}</p>
+            <p style="font-size: x-large">{{annonce.description}}</p> <!-- Display annonce description -->
           </div>
           <br />
-          <h4>Posted by:</h4>
+          <h4 style="color: black;">Posted by:</h4>
           <div class="wrapper">
             <ion-avatar>
               <img alt="profile picture" src="https://i.pravatar.cc/300" />
             </ion-avatar>
-            <h5>{{annonce.createdBy}}</h5>
+            <h5 style="color: black;">{{annonce.createdBy}}</h5> <!-- Display creator's name -->
           </div>
         </div>
-      </ion-col></ion-row
-    ></ion-grid
-  >
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -23,11 +23,13 @@ export class LoginPage implements OnInit {
   ) {}
 
   ngOnInit() {}
+
+  // Login method using Firebase authentication
   loginFireauth(value) {
+    // Authenticate user and redirect on success
     this.authservice
       .loginFireauth(value)
       .then((res) => {
-        // Do something here
         this.router.navigate(['/annonces']);
         console.log(res);
       })

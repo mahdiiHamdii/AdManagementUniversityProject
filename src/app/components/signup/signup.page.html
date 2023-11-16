@@ -1,3 +1,4 @@
+<!-- This HTML template is for the signup page's content -->
 <ion-content class="bg-color">
 
   <ion-card class="ion-no-margin">
@@ -7,28 +8,25 @@
         Sign Up
       </ion-card-title>
     </ion-card-header>
+
+    <!-- Form for user signup -->
     <form #f="ngForm" (ngSubmit)="registerUser(f.value)">
       <ion-card-content>
+        <!-- Input fields for user details -->
         <ion-item>
-          <ion-input name="name" type="text" placeholder="FullName" ngModel >
+          <ion-input name="name" type="text" placeholder="FullName" ngModel>
             <ion-icon name="person-outline"></ion-icon>
           </ion-input>
         </ion-item>
-        <div>
 
-
-        </div>
         <ion-item>
           <ion-input name="phone" type="text" placeholder="Phone No." ngModel>
             <ion-icon name="call-outline"></ion-icon>
           </ion-input>
         </ion-item>
-        <div>
 
-
-        </div>
         <ion-item>
-          <ion-input name="email" type="text" placeholder="Email" ngModel >
+          <ion-input name="email" type="text" placeholder="Email" ngModel>
             <ion-icon name="mail-outline"></ion-icon>
           </ion-input>
         </ion-item>
@@ -39,7 +37,7 @@
           </ion-input>
         </ion-item>
 
-
+        <!-- Buttons for signup and login -->
         <div class="sign-btn-wrap">
           <ion-button shape="round" type="submit" fill="solid" class="sign-btn">Sign Up</ion-button>
           <ion-button shape="round" type="submit" fill="outline" [routerLink]="['/login']">Login</ion-button>

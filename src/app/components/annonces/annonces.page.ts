@@ -10,12 +10,11 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['annonces.page.scss'],
 })
 export class AnnoncePage implements OnInit {
-   // dans la page home on va utliser les segments et les slides pour afficher dans chaque slide
-  // des differents interfaces comme tout les annonces ou bien les annonces d'utlisateur connecté
+  // Using segments and slides to display different interfaces in each slide
 
   @ViewChild('slides', { static: true }) slider: IonSlides;
-  listAnnoncesPlats = [];
-  listAnnoncesBoissons = [];
+  listAnnoncesNutrition = [];
+  listAnnoncesExercises = [];
   segment = 0;
   userEmail: string;
   user: any;
@@ -26,58 +25,66 @@ export class AnnoncePage implements OnInit {
     private activatedRoute: ActivatedRoute,
     private userserv: AuthService
   ) {}
-  // cette methode va capturer le changement du segment
-  // pour changer le contenu
+
+  // This method captures segment change to update the content
   async segmentChanged(ev: any) {
     await this.slider.slideTo(this.segment);
   }
+
+  // This method listens for slide change
   async slideChanged() {
     this.segment = await this.slider.getActiveIndex();
-    if(this.segment === 0){
-      this.getAnnocesByBoissons();
+    if (this.segment === 0) {
+      this.getAnnocesByNutrition();
     } else {
-      this.getAnnocesByPlats();
+      this.getAnnocesByExerice();
     }
   }
 
-  getAnnocesByBoissons(){
+  // Retrieve announcements by nutrition category
+  getAnnocesByNutrition() {
     return this.announceService.getAllAnnonces().subscribe({
       next: (data) => {
-        this.listAnnoncesBoissons = [];
+        this.listAnnoncesNutrition = [];
         for (const key in data) {
-          if(data[key].category === 'Boissons'){
+          if (data[key].category === 'Nutrition') {
             data[key].id = key;
-            this.listAnnoncesBoissons.push(data[key]);
+            this.listAnnoncesNutrition.push(data[key]);
           }
         }
       },
     });
   }
-  getAnnocesByPlats(){
+
+  // Retrieve announcements by exercises category
+  getAnnocesByExerice() {
     return this.announceService.getAllAnnonces().subscribe({
       next: (data) => {
-        this.listAnnoncesPlats = [];
+        this.listAnnoncesExercises = [];
         for (const key in data) {
-          if(data[key].category === 'Plats'){
+          if (data[key].category === 'Exercices') {
             data[key].id = key;
-            this.listAnnoncesPlats = [...this.listAnnoncesPlats, data[key]];
+            this.listAnnoncesExercises = [...this.listAnnoncesExercises, data[key]];
           }
         }
       },
     });
   }
+
   ngOnInit() {
     this.userEmail = window.localStorage.getItem('email');
     console.log('AnnoncePage ngOnInit');
-    this.getAnnocesByBoissons();
-    this.getAnnocesByPlats();
+    this.getAnnocesByNutrition();
+    this.getAnnocesByExerice();
   }
+
+  // Redirect to announcement details page
   seeDetails(id) {
     console.log('ID/', id);
     this.router.navigate(['/annonce-details', id]);
   }
 
-  // eslint-disable-next-line @typescript-eslint/naming-convention
+  // Sign out the user and navigate to home
   SignOut() {
     return this.userserv.auth.signOut().then(() => {
       this.router.navigate(['/home']);

@@ -6,81 +6,59 @@
         defaultHref="/annonces"
       ></ion-back-button>
     </ion-buttons>
-    <ion-title>Ajouter une Annonce</ion-title>
+    <ion-title>Adding An Article</ion-title>
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content fullscreen="true" slot="fixed" >
-  <ion-card >
+  <ion-card>
     <ion-card-content>
       <ion-row justify-content-center>
         <ion-col size="10" offset="1" class="container">
           <div text-center class="ion-margin-bottom" style="margin-top: 15%">
-            <form
-              #f="ngForm"
-              (ngSubmit)="addAnnonce(f.value)"
-              class="form-group"
-            >
+            <!-- Article form -->
+            <form #f="ngForm" (ngSubmit)="addAnnonce(f.value)" class="form-group">
+              <!-- Title input -->
               <ion-item class="ion-margin-bottom">
                 <ion-input
                   placeholder="Title"
-
                   type="text"
                   name="title"
                   id="title"
                   ngModel
                   required
-
-                ></ion-input
-              ></ion-item>
-              <ion-item class="ion-margin-bottom">
-                <ion-input
-                  placeholder="Image URL"
-                  class="ion-margin-bottom"
-
-                  type="text"
-                  name="imageUrl"
-                  id="imageUrl"
-                  ngModel
-                  required
-
-                ></ion-input
-              ></ion-item>
+                ></ion-input>
+              </ion-item>
+              <!-- Category selection -->
               <ion-item class="ion-margin-bottom">
                 <ion-select placeholder="Select category" ngModel name="category">
-                  <ion-select-option value="Plats">Plats</ion-select-option>
-                  <ion-select-option value="Boissons">Boissons</ion-select-option>
-
+                  <ion-select-option value="Nutrition">Nutrition</ion-select-option>
+                  <ion-select-option value="Exercices">Exercices</ion-select-option>
                 </ion-select>
-
               </ion-item>
+              <!-- Description input -->
               <ion-item class="ion-margin-bottom">
                 <ion-input
                   placeholder="Description"
-
                   type="text"
                   name="description"
                   id="description"
                   ngModel
                   required
-
-                ></ion-input
-              ></ion-item>
-
+                ></ion-input>
+              </ion-item>
+              <!-- Add Article button -->
               <ion-button
                 type="submit"
                 expand="full"
                 color="primary"
-
               >
-                Add Annonce</ion-button
-              >
+                Add Article
+              </ion-button>
             </form>
           </div>
-        </ion-col></ion-row
-      >
-    </ion-card-content></ion-card
-  >
-
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

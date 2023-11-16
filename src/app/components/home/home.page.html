@@ -1,6 +1,5 @@
-
-
 <ion-content fullscreen="true" slot="fixed" >
+  <!-- Container with welcome message -->
   <div class="wave-container">
     <div class="ion-padding">
       <h1>Bienvenue</h1>
@@ -8,16 +7,15 @@
     </div>
   </div>
 
-
+  <!-- Login and Signup buttons within an ion-card -->
   <ion-card>
-
     <ion-card-content>
       <div class="signin-btns">
-        <ion-button color="danger"fill="solid" shape="round" ion-no-padding [routerLink]="['/login']">Login</ion-button>
+        <!-- Button to navigate to the login page -->
+        <ion-button color="danger" fill="solid" shape="round" ion-no-padding [routerLink]="['/login']">Login</ion-button>
+        <!-- Button to navigate to the signup page -->
         <ion-button fill="solid" shape="round" ion-no-padding [routerLink]="['/signup']">SignUp</ion-button>
-
       </div>
     </ion-card-content>
   </ion-card>
-
 </ion-content>

@@ -9,12 +9,14 @@ import { Router } from '@angular/router';
 export class HomePage {
 
   constructor(private router: Router) { }
-  gotoLoginpage() {
+
+  // Navigate to the login page
+  gotoLoginPage() {
     this.router.navigate(['login']);
   }
-  gotRegisterPage(){
+
+  // Navigate to the signup page
+  gotoRegisterPage(){
     this.router.navigate(['signup']);
   }
-
- 
 }

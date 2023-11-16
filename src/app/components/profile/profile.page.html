@@ -1,54 +1,50 @@
 <ion-header [translucent]="true">
-  <!-- ion-back-button avec defaultHref va retourner 'utlisateur vers /annonces-->
-  <ion-toolbar
-  ><ion-buttons slot="start"
-  ><ion-back-button
-    name="arrow-back-outline"
-    defaultHref="/annonces"
-  ></ion-back-button>
-  </ion-buttons>
+  <!-- Header section -->
+  <!-- Back button to return to '/annonces' -->
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button name="arrow-back-outline" defaultHref="/annonces"></ion-back-button>
+    </ion-buttons>
     <ion-title class="d-inline-flex p-2 bd-highlight">
-      Mon Profil</ion-title
-    >
+      My Profile <!-- Mahdi Hamdi -->
+    </ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content fullscreen="true" slot="fixed" >
+
+<ion-content fullscreen="true" slot="fixed">
+  <!-- User profile section -->
   <div class="wave-container">
     <div class="ion-padding">
       <div class="card">
         <div class="header">
           <div class="avatar">
-            <img src="{{user?.imageUrl}}" alt="">
+            <img src="https://i.pravatar.cc/300" alt="" style="width: 100%; height: 100%;">
           </div>
-
         </div>
       </div>
     </div>
     <ion-grid>
-      <ion-row class=" ion-margin ion-text-center" >
-        <ion-col >
-          <h3>{{userEmail}}</h3>
+      <ion-row class="ion-margin ion-text-center">
+        <ion-col>
+          <h2>{{userEmail}}</h2> <!-- Display user email -->
         </ion-col>
-        <ion-col ><h3>{{user?.name}}</h3></ion-col>
-        <ion-col ><h3>{{user?.phone}}</h3></ion-col>
       </ion-row>
     </ion-grid>
   </div>
+
+  <!-- Display user's annonces -->
   <ion-grid>
     <ion-row>
-      <ion-col sizeSm="6" size="4" sizeMd="4" sizeLg="3" sizeXl="2"  *ngFor="let annonce of listAnnonces">
-        <ion-card style="background: url({{annonce.imageUrl}});" [routerLink]="['/annonces/annonce-details/', annonce.id]">
-          <ion-card-header>
-            <ion-avatar>
-            </ion-avatar>
-          </ion-card-header>
-          <ion-card-content style="background: white;">
+      <!-- Loop through user's annonces -->
+      <ion-col sizeSm="6" size="4" sizeMd="4" sizeLg="3" sizeXl="2" *ngFor="let annonce of listAnnonces">
+        <ion-card>
+          <!-- Navigate to annonce details on click -->
+          <ion-card-content style="background: white;" [routerLink]="['/annonces/annonce-details/', annonce.id]">
             <ion-card-title>{{annonce.title}}</ion-card-title>
-            <p maxlength="5">{{annonce.description |slice:0:20}}..</p>
-           </ion-card-content>
+            <p maxlength="5">{{annonce.description | slice:0:20}}..</p> <!-- Display annonce description -->
+          </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
-

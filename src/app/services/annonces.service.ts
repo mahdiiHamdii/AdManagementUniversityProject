@@ -6,24 +6,25 @@ import {catchError, map} from 'rxjs/operators';
   providedIn: 'root',
 })
 export class AnnoncesService {
+  url ='https://articlesmanagement-cbe66-default-rtdb.europe-west1.firebasedatabase.app/annonces.json';
   constructor(private httpClient: HttpClient) {}
   // retourne tout les annonces
   getAllAnnonces(): Observable<any> {
     return this.httpClient.get(
       // eslint-disable-next-line max-len
-      'https://gestion-des-annoces-default-rtdb.europe-west1.firebasedatabase.app/annonces.json'
+      this.url
     );
   }
   // ajouter un annonce
   addAnnonce(annonce: any): Observable<any> {
     return this.httpClient.post(
-      'https://gestion-des-annoces-default-rtdb.europe-west1.firebasedatabase.app/annonces.json',
+      this.url,
       annonce
     );
   }
   getAnnonceById(id: string): Observable<any> {
     return this.httpClient.get<any>(
-      `https://gestion-des-annoces-default-rtdb.europe-west1.firebasedatabase.app/annonces/${id}.json`
+      `https://articlesmanagement-cbe66-default-rtdb.europe-west1.firebasedatabase.app/annonces/${id}.json`
     )
       .pipe(
         map(annonce => ({...annonce, id})),
@@ -38,13 +39,13 @@ export class AnnoncesService {
   // retourne tout les annonces d'un utlisateur par son email
   getAnnonceByUId(mail: any): Observable<any> {
     return this.httpClient.get(
-      'https://gestion-des-annoces-default-rtdb.europe-west1.firebasedatabase.app/annonces.json?orderBy="createdBy"&equalTo="'+mail+'"'
+      'https://articlesmanagement-cbe66-default-rtdb.europe-west1.firebasedatabase.app/annonces.json?orderBy="createdBy"&equalTo="'+mail+'"'
     );
   }
 
   deleteAnnonceById(id: string): Observable<void> {
     return this.httpClient.delete<void>(
-      `https://gestion-des-annoces-default-rtdb.europe-west1.firebasedatabase.app/annonces/${id}.json`
+      `https://articlesmanagement-cbe66-default-rtdb.europe-west1.firebasedatabase.app/annonces/${id}.json`
     )
       .pipe(
         catchError(error => {
@@ -56,7 +57,7 @@ export class AnnoncesService {
   // Update annonce:
   updateAnnonce(annonce: any): Observable<any> {
     return this.httpClient.put(
-      'https://gestion-des-annoces-default-rtdb.europe-west1.firebasedatabase.app/annonce/' +
+      'https://articlesmanagement-cbe66-default-rtdb.europe-west1.firebasedatabase.app/annonce/' +
         annonce.id +
         '.json',
       annonce
